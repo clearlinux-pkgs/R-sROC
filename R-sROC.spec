@@ -4,14 +4,14 @@
 #
 Name     : R-sROC
 Version  : 0.1.2
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/sROC_0.1-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sROC_0.1-2.tar.gz
 Summary  : Nonparametric Smooth ROC Curves for Continuous Data
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-sROC-lib
-BuildRequires : clr-R-helpers
+Requires: R-sROC-lib = %{version}-%{release}
+BuildRequires : buildreq-R
 
 %description
 nonparametric estimation of receiver operating characteristic
@@ -33,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521245261
+export SOURCE_DATE_EPOCH=1552798956
 
 %install
+export SOURCE_DATE_EPOCH=1552798956
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521245261
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library sROC|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  sROC || :
 
 
 %files
@@ -99,7 +98,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/sROC/help/sROC.rdx
 /usr/lib64/R/library/sROC/html/00Index.html
 /usr/lib64/R/library/sROC/html/R.css
-/usr/lib64/R/library/sROC/libs/symbols.rds
 /usr/lib64/R/library/sROC/script/.Rapp.history
 /usr/lib64/R/library/sROC/script/Example_codes.R
 
@@ -107,4 +105,3 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/sROC/libs/sROC.so
 /usr/lib64/R/library/sROC/libs/sROC.so.avx2
-/usr/lib64/R/library/sROC/libs/sROC.so.avx512
