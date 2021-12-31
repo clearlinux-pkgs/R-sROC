@@ -4,7 +4,7 @@
 #
 Name     : R-sROC
 Version  : 0.1.2
-Release  : 36
+Release  : 37
 URL      : https://cran.r-project.org/src/contrib/sROC_0.1-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sROC_0.1-2.tar.gz
 Summary  : Nonparametric Smooth ROC Curves for Continuous Data
